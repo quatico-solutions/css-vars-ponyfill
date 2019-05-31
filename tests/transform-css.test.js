@@ -156,7 +156,7 @@ describe('transform-css', function() {
                 p { color: var(--color); }
             `;
             const cssOut    = transformCss(cssIn);
-            const expectCss = '@media screen{}p{color:blue;}';
+            const expectCss = 'p{color:red;}@media screen{p{color:blue;}}';
 
             expect(cssOut).to.equal(expectCss);
         });
@@ -184,7 +184,7 @@ describe('transform-css', function() {
                 p { color: var(--color); }
             `;
             const cssOut    = transformCss(cssIn);
-            const expectCss = '@media screen{p{color:green;}}p{color:blue;}';
+            const expectCss = '@media screen{p{color:green;}}p{color:red;}';
 
             expect(cssOut).to.equal(expectCss);
         });
